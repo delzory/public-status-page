@@ -3,28 +3,30 @@
 Public customer-service status page built with [cState](https://github.com/cstate/cstate).
 The configured components live in `config.yml`; incident posts live in `content/issues/`.
 
-## Public components
+## Public status hierarchy
 
-| Component | Report problems with |
+Three service headings are collapsed by default. Opening one shows its
+capabilities and their individual status. Each heading summarizes the most
+severe incident affecting any capability beneath it.
+
+| Service | Capabilities shown on expansion |
 | --- | --- |
-| delzory.com | Public site, company information, and announcements |
-| Account Portal | Sign-in, account settings, and service management |
-| Billing | Invoices, subscriptions, and payment processing |
-| Support | Standard and urgent request channels |
-| Notifications | Email delivery for account messages and service alerts |
+| Website | Homepage, Documentation, Blog |
+| Account | Sign-in, Portal, Billing, Notifications |
+| Support | Requests, Urgent Assistance |
 
 Keep the page focused on services customers can recognize. Describe affected
 infrastructure (for example DNS, authentication, a processing queue, or a
 regional cluster) in the incident details, and list each affected public
 component by its exact configured name. For example, a billing outage should
-not mark the Account Portal as down if sign-in and service management still
-work. Support describes the availability of contact channels, not how quickly
-a person replies. Notifications does not imply hosted mailbox service.
+not mark Sign-in or Portal as down if those still work. Requests and Urgent
+Assistance describe the availability of contact channels, not how quickly a
+person replies. Notifications does not imply hosted mailbox service.
 
 Only list services that are actually offered and can receive incident updates.
 The publicly indexed Delzory homepage shows a maintenance notice, and the
-repository alone cannot confirm whether the portal, billing, and support
-channels are live. Verify those before publishing this inventory.
+repository alone cannot confirm whether documentation, blog, portal, billing,
+and support channels are live. Verify those before publishing this inventory.
 
 Cloudflare Pages builds this Hugo site from the GitHub repository. The
 production branch is `master`; pull requests receive preview deployments.

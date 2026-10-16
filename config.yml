@@ -143,27 +143,43 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   categories:
-  - name: Services
-    untitled: true
+  - name: Website
+    closed: true
+  - name: Account
+    closed: true
+  - name: Support
+    closed: true
 
-  # Show customer-facing services. Explain internal failures or regional impact
-  # in an incident affecting the appropriate service.
+  # Show three customer-facing services first. Expand a service to see its
+  # separately reported capabilities. Explain infrastructure in incidents.
   systems:
-    - name: delzory.com
-      description: The public site, including company information and announcements.
-      category: Services
-    - name: Account Portal
-      description: Sign-in and tools for managing account settings and services.
-      category: Services
+    - name: Homepage
+      description: Public homepage and product information.
+      category: Website
+    - name: Documentation
+      description: Setup guides and technical help.
+      category: Website
+    - name: Blog
+      description: Company news and product announcements.
+      category: Website
+    - name: Sign-in
+      description: Access to customer accounts.
+      category: Account
+    - name: Portal
+      description: Dashboard for managing settings and services.
+      category: Account
     - name: Billing
       description: Invoices, subscriptions, and payment processing.
-      category: Services
-    - name: Support
-      description: Channels for submitting standard or urgent requests.
-      category: Services
+      category: Account
     - name: Notifications
-      description: Email delivery for account messages and service alerts.
-      category: Services
+      description: Account email and service alerts.
+      category: Account
+    - name: Requests
+      description: Standard inquiries and support ticket submissions.
+      category: Support
+    - name: Urgent Assistance
+      description: Priority channel for service-impacting issues.
+      category: Support
 
     # What date format to use?
     #

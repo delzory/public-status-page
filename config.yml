@@ -149,20 +149,23 @@ params:
   # Show customer-facing services. Explain internal failures or regional impact
   # in an incident affecting the appropriate service.
   systems:
-    - name: Website & Docs
-      description: Public website, documentation, and announcements.
+    - name: Delzory Website
+      description: Delzory.com and its public information pages.
       category: Services
-    - name: Customer Portal & Billing
-      description: Account sign-in, service management, invoices, and payments.
+    - name: Customer Portal
+      description: Sign-in, account settings, and service management.
       category: Services
     - name: Hosted Websites
-      description: Customer websites and custom domains.
+      description: Customer sites and managed domains and certificates.
       category: Services
-    - name: Support
-      description: Customer support requests and urgent support channels.
+    - name: Billing & Payments
+      description: Invoices, payments, and subscriptions.
       category: Services
-    - name: Email & Notifications
-      description: Transactional email, service alerts, and customer notifications.
+    - name: Support Requests
+      description: General and urgent support request channels.
+      category: Services
+    - name: Service Notifications
+      description: Delivery of account emails and service alerts.
       category: Services
 
     # What date format to use?

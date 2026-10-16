@@ -47,3 +47,10 @@ in the post.
 cState reflects published incident files; this repository has no automated
 service checks. Only describe a service as continuously monitored if an
 independent check and update workflow is in place.
+
+## Changes before production
+
+Pull requests run build, status-data validation, internal-link, desktop/mobile,
+workflow-security, secret and dependency checks. See
+[Production checks](docs/production-checks.md) for the exact coverage, local
+commands, and GitHub/Cloudflare settings needed to make passing checks mandatory.

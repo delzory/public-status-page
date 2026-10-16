@@ -1,0 +1,73 @@
+name: Site checks
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-checks-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  site:
+    name: Build and test status page
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out site and pinned theme
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Install pinned CI dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements-ci.txt
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium --only-shell
+          bash scripts/install-ci-tools.sh
+      - name: Lint workflows
+        run: actionlint -color
+      - name: Scan Git history for exposed credentials
+        run: gitleaks git --redact --no-banner
+      - name: Audit installed browser-test dependencies
+        run: npm audit --audit-level=high
+      - name: Validate status configuration and incidents
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py'
+          python scripts/validate_status.py
+      - name: Build production output
+        run: hugo --environment production --gc --minify
+      - name: Check rendered data and internal links
+        run: python scripts/check_rendered_site.py public
+      - name: Test desktop and mobile interactions
+        run: npm test
+
+  dependencies:
+    name: Dependency review
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Block newly introduced vulnerable dependencies
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          base-ref: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
+          head-ref: ${{ github.event.pull_request.head.sha || github.event.merge_group.head_sha }}
+          fail-on-severity: high
+          comment-summary-in-pr: never
+          license-check: false

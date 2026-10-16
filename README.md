@@ -9,7 +9,7 @@ The configured components live in `config.yml`; incident posts live in `content/
 | --- | --- |
 | Delzory Website | Delzory.com and its public information pages |
 | Customer Portal | Sign-in, account settings, and service management |
-| Hosted Websites | Customer sites, managed domains, and certificates |
+| Customer Sites | Customer sites, managed domains, and certificates |
 | Billing & Payments | Invoices, payments, and subscriptions |
 | Support Requests | Ability to submit general or urgent support requests |
 | Service Notifications | Delivery of account emails and service alerts |
@@ -24,7 +24,7 @@ how quickly a person replies. Service Notifications does not imply hosted
 mailbox service.
 
 Only list services that are actually offered and can receive incident updates.
-The public Delzory site currently displays a maintenance notice, so the
+The publicly indexed Delzory homepage shows a maintenance notice, and the
 repository alone cannot confirm whether the portal, billing, hosted sites,
 and support channels are live. Verify those before publishing this inventory.
 

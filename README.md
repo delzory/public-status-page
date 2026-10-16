@@ -2,11 +2,12 @@
 
 **Service availability, maintenance notices, and incident updates for Delzory.**
 
-[View status](https://status.delzory.com) · [About this page](docs/about.md) · [Report a vulnerability](SECURITY.md)
+[View status](https://status.delzory.com) · [Security policy](SECURITY.md) · [Contribution policy](CONTRIBUTING.md)
 
 This repository contains the source for Delzory's public status page. It is built
 with [Hugo](https://gohugo.io/) and [cState](https://github.com/cstate/cstate), with
-production hosting and pull request previews on Cloudflare Pages.
+production hosting and pull request previews on Cloudflare Pages. Delzory manages
+the site internally; public contributions are not accepted.
 
 ## What the page covers
 
@@ -20,19 +21,24 @@ their incident history. Each group reflects its most severe active incident.
 | Support | Requests, Urgent Assistance |
 
 Status is based on published incident updates. This repository does not perform
-live availability monitoring; a successful site build does not mean every
-Delzory service is healthy. [How to read the status page →](docs/about.md)
+live availability monitoring. **Operational** means no active incident is published
+for a component; **Under maintenance**, **Disrupted**, and **Down** describe active
+maintenance, degradation, and outages respectively. A successful site build does
+not establish that every Delzory service is healthy.
 
-## Working on the site
+Select a component to see its incident history. Use the RSS links in the page
+footer to follow all updates or a specific component with a feed reader.
+Support status describes contact-channel availability, rather than response time.
+For help with a service, use your existing Delzory support channel.
+
+## Maintainer reference
 
 | Task | Guide |
 | --- | --- |
 | Publish or resolve an incident | [Incident publishing](docs/incidents.md) |
 | Run checks and prepare a release | [Production checks](docs/production-checks.md) |
 | Change components, branding, or layouts | [Site customization](docs/customization.md) |
-| Contribute as a maintainer | [Contribution guide](CONTRIBUTING.md) |
 | Report a security concern privately | [Security policy](SECURITY.md) |
-| Participate in repository discussions | [Code of conduct](CODE_OF_CONDUCT.md) |
 
 ### Preview locally
 

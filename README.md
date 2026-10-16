@@ -31,6 +31,9 @@ and support channels are live. Verify those before publishing this inventory.
 Cloudflare Pages builds this Hugo site from the GitHub repository. The
 production branch is `master`; pull requests receive preview deployments.
 
+The incident history starts empty. The old 2025 maintenance posts were
+removed, and future incidents will appear in a simple chronological list.
+
 ## Publishing an incident
 
 Add a Markdown post under `content/issues/` using the cState frontmatter

@@ -143,179 +143,27 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   categories:
-  - name: Digital Presence
-    description: Public-facing content such as websites, documentation, and announcements.
-    closed: true
-  - name: Customer Experience
-    description: Interfaces for customer interaction, subscriptions, and communications.
-    closed: true
-  - name: Delzory Learning
-    description: Components supporting LMS environments and educational content delivery.
-    closed: true
-  - name: Hosting Services
-    description: Services enabling hosting, file management, and platform scalability.
-    closed: true
-  - name: Platform Infrastructure
-    description: Background processes, APIs, and data synchronization pipelines.
-    closed: true
-  - name: Network & Security
-    description: Infrastructure for global delivery, TLS, DNS, and protective layers.
-    closed: true
-  - name: Identity & Access Management
-    description: Centralized identity services including SSO, RBAC, and access control.
-    closed: true
-  - name: Service Delivery Zones
-    description: Monitors the health of zone-based service clusters across regions.
-    closed: true
-  - name: Uncategorized
+  - name: Services
     untitled: true
 
-  # These are your systems. Change them to
-  # change the amount of components.
-  #
-  # These are case sensitive.
-  #
-  # For help, see the wiki:
-  # https://github.com/cstate/cstate/wiki/Customization
+  # Show customer-facing services. Explain internal failures or regional impact
+  # in an incident affecting the appropriate service.
   systems:
-    # Digital Presence
-    - name: Main Website
-      description: Public homepage and product information.
-      category: Digital Presence
-    - name: Documentation Site
-      description: Setup guides, technical documentation, and integration resources.
-      category: Digital Presence
-    - name: Delzory Blog
-      description: Product news, release announcements, and company updates.
-      category: Digital Presence
-    - name: Status Page
-      description: Platform health, maintenance events, and historical incidents.
-      category: Digital Presence
-    # Customer Experience
-    - name: Customer Control Panel
-      description: Unified dashboard for service management, site status, and support.
-      category: Customer Experience
-    - name: Customer Support
-      description: Primary customer support for general inquiries and ticket submissions.
-      category: Customer Experience
-    - name: Emergency Support
-      description: High-priority support channel for urgent service-impacting issues.
-      category: Customer Experience
-    - name: Notification & Email Delivery
-      description: Outbound system for transactional emails, alerts, and communications.
-      category: Customer Experience
-    - name: Billing & Subscriptions
-      description: Manages invoicing, payments, renewals, and customer account billing.
-      category: Customer Experience
-    - name: Access Management
-      description: Role-based permissions, authentication, and user controls.
-      category: Customer Experience
-    # Delzory Learning
-    - name: Student Portal
-      description: Learner-facing LMS interface for course access, progress, and assignments.
-      category: Delzory Learning
-    - name: Instructor Portal
-      description: Faculty tools for managing course content, grading, and learner tracking.
-      category: Delzory Learning
-    - name: Admin Console (LMS)
-      description: Administrative environment for configuring learning systems.
-      category: Delzory Learning
-    - name: Course Authoring Tools
-      description: Content builder for creating, editing, and managing learning modules.
-      category: Delzory Learning
-    - name: Assessment Engine
-      description: Grading, quiz, and exam infrastructure for evaluating learner performance.
-      category: Delzory Learning
-    - name: Learning Media Streaming
-      description: Video delivery platform for course materials and on-demand content.
-      category: Delzory Learning
-    - name: LMS Notification System
-      description: Sends alerts, reminders, and announcements within the learning platform.
-      category: Delzory Learning
-    - name: Feedback & Evaluations
-      description: Surveys and feedback collection for continuous improvement.
-      category: Delzory Learning
-    - name: Enrollment Services
-      description: Course registration workflows.
-      category: Delzory Learning
-    - name: Learning Analytics
-      description: Learner engagement tracking, outcome data, and platform usage insights.
-      category: Delzory Learning
-    - name: LTI Integration Gateway
-      description: Third-party integrations via LTI standard.
-      category: Delzory Learning
-    # Hosting Services
-    - name: Hosted Sites
-      description: Managed deployment of customer-facing websites.
-      category: Hosting Services
-    # Platform Infrastructure
-    - name: Content Management System (CMS)
-      description: Backend system for content updates and site publishing.
-      category: Platform Infrastructure
-    - name: Automation & Queue Processing
-      description: Orchestrates background tasks, job queues, and internal service workflows.
-      category: Platform Infrastructure
-    - name: Data Synchronization Services
-      description: Syncs internal data pipelines and third-party integrations.
-      category: Platform Infrastructure
-    - name: Webhook & Event Dispatching
-      description: Real-time outbound delivery of platform events to external services.
-      category: Platform Infrastructure
-    # Network & Security
-    - name: Domain Routing & DNS
-      description: Manages domain name resolution and routing logic for all web properties.
-      category: Network & Security
-    - name: TLS & Certificate Services
-      description: Handles SSL certificate issuance, renewal, and enforcement.
-      category: Network & Security
-    - name: Content Delivery Network (CDN)
-      description: Global caching and edge content acceleration for all platforms.
-      category: Network & Security
-    - name: Web Application Firewall (WAF)
-      description: Protects against web threats and common vulnerabilities.
-      category: Network & Security
-    - name: Custom Domain Management
-      description: DNS and SSL management for customer-owned domains.
-      category: Network & Security
-    # Identity & Access Management
-    - name: Authentication Services
-      description: Core login, session control, and multi-factor authentication.
-      category: Identity & Access Management
-    - name: Single Sign-On (SSO)
-      description: Enables identity federation with third-party authentication providers.
-      category: Identity & Access Management
-    - name: Role & Permission Management
-      description: Defines and enforces access levels across all services.
-      category: Identity & Access Management
-    # Service Delivery Zones
-    - name: US-EST-01
-      description: East Zone, Cluster 01
-      category: Service Delivery Zones
-    - name: US-EST-02
-      description: East Zone, Cluster 02
-      category: Service Delivery Zones
-    - name: US-EST-03
-      description: East Zone, Cluster 03
-      category: Service Delivery Zones
-    - name: US-WST-01
-      description: West Zone, Cluster 01
-      category: Service Delivery Zones
-    - name: US-WST-02
-      description: West Zone, Cluster 02
-      category: Service Delivery Zones
-    - name: US-WST-03
-      description: West Zone, Cluster 03
-      category: Service Delivery Zones
-    - name: US-MWT-01
-      description: Midwest Zone, Cluster 01
-      category: Service Delivery Zones
-    - name: US-MWT-02
-      description: Midwest Zone, Cluster 02
-      category: Service Delivery Zones
-    - name: US-MWT-03
-      description: Midwest Zone, Cluster 03
-      category: Service Delivery Zones
-
+    - name: Website & Docs
+      description: Public website, documentation, and announcements.
+      category: Services
+    - name: Customer Portal & Billing
+      description: Account sign-in, service management, invoices, and payments.
+      category: Services
+    - name: Hosted Websites
+      description: Customer websites and custom domains.
+      category: Services
+    - name: Support
+      description: Customer support requests and urgent support channels.
+      category: Services
+    - name: Email & Notifications
+      description: Transactional email, service alerts, and customer notifications.
+      category: Services
 
     # What date format to use?
     #
@@ -436,7 +284,7 @@ params:
   # on the footer and meta tags.
   #
   # Default: We continuously monitor the status of our services and if there are any interruptions, a note will be posted here.
-  description: We continuously monitor the status of our services and if there are any interruptions, a note will be posted here.
+  description: Availability and incident updates for Delzory customer services.
 
   # Tabs on homepage
   # Uncomment to enable.
@@ -492,7 +340,7 @@ params:
   #
   # Default: `true`
   # BOOLEAN; `true`, `false`
-  alwaysKeepBrandColor: true
+  alwaysKeepBrandColor: false
 
   # Introduced in v4.0.1 for consistent
   # site title text color.

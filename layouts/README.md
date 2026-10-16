@@ -1,3 +1,9 @@
-This folder can be used to overwrite or add any layouts to your status page.
+# Theme overrides
 
-For more, please [read the documentation](https://github.com/cstate/cstate/wiki/Customization).
+This directory contains Delzory-specific Hugo templates. The current override in
+`partials/index/components.html` controls expandable service groups and their
+status summaries.
+
+Keep overrides small so updates to the pinned cState theme remain reviewable.
+See [Site customization](../docs/customization.md) for component, branding, and
+preview guidance.

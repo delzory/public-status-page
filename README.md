@@ -1,56 +1,84 @@
 # Delzory Status
 
-Public customer-service status page built with [cState](https://github.com/cstate/cstate).
-The configured components live in `config.yml`; incident posts live in `content/issues/`.
+**Service availability, maintenance notices, and incident updates for Delzory.**
 
-## Public status hierarchy
+[View status](https://status.delzory.com) · [About this page](docs/about.md) · [Report a vulnerability](SECURITY.md)
 
-Three service headings are collapsed by default. Opening one shows its
-capabilities and their individual status. Each heading summarizes the most
-severe incident affecting any capability beneath it.
+This repository contains the source for Delzory's public status page. It is built
+with [Hugo](https://gohugo.io/) and [cState](https://github.com/cstate/cstate), with
+production hosting and pull request previews on Cloudflare Pages.
 
-| Service | Capabilities shown on expansion |
+## What the page covers
+
+Customers can expand three service groups to see individual components and open
+their incident history. Each group reflects its most severe active incident.
+
+| Service group | Components |
 | --- | --- |
 | Website | Homepage, Documentation, Blog |
 | Account | Sign-in, Portal, Billing, Notifications |
 | Support | Requests, Urgent Assistance |
 
-Keep the page focused on services customers can recognize. Describe affected
-infrastructure (for example DNS, authentication, a processing queue, or a
-regional cluster) in the incident details, and list each affected public
-component by its exact configured name. For example, a billing outage should
-not mark Sign-in or Portal as down if those still work. Requests and Urgent
-Assistance describe the availability of contact channels, not how quickly a
-person replies. Notifications does not imply hosted mailbox service.
+Status is based on published incident updates. This repository does not perform
+live availability monitoring; a successful site build does not mean every
+Delzory service is healthy. [How to read the status page →](docs/about.md)
 
-Only list services that are actually offered and can receive incident updates.
-The publicly indexed Delzory homepage shows a maintenance notice, and the
-repository alone cannot confirm whether documentation, blog, portal, billing,
-and support channels are live. Verify those before publishing this inventory.
+## Working on the site
 
-Cloudflare Pages builds this Hugo site from the GitHub repository. The
-production branch is `master`; pull requests receive preview deployments.
+| Task | Guide |
+| --- | --- |
+| Publish or resolve an incident | [Incident publishing](docs/incidents.md) |
+| Run checks and prepare a release | [Production checks](docs/production-checks.md) |
+| Change components, branding, or layouts | [Site customization](docs/customization.md) |
+| Contribute as a maintainer | [Contribution guide](CONTRIBUTING.md) |
+| Report a security concern privately | [Security policy](SECURITY.md) |
+| Participate in repository discussions | [Code of conduct](CODE_OF_CONDUCT.md) |
 
-The incident history starts empty. The old 2025 maintenance posts were
-removed, and future incidents will appear in a simple chronological list.
+### Preview locally
 
-## Publishing an incident
+Install Git and the Hugo version recorded in [`.hugo-version`](.hugo-version), then:
 
-Add a Markdown post under `content/issues/` using the cState frontmatter
-fields `title`, `date`, `resolved`, `severity`, `affected`, and
-`section: issue`. Use `notice` for maintenance, `disrupted` for degraded
-service, and `down` for an outage. When the incident ends, set
-`resolved: true` and enter the actual end time in `resolvedWhen`. Include
-customer impact, affected regions where relevant, and the next update time
-in the post.
+```sh
+git clone --recurse-submodules https://github.com/delzory/public-status-page.git
+cd public-status-page
+hugo server --disableFastRender
+```
 
-cState reflects published incident files; this repository has no automated
-service checks. Only describe a service as continuously monitored if an
-independent check and update workflow is in place.
+Open the local address printed by Hugo. For an existing clone, run
+`git submodule update --init --recursive` before starting. The full CI toolchain
+and validation commands are in [Production checks](docs/production-checks.md).
 
-## Changes before production
+### Publish through a pull request
 
-Pull requests run build, status-data validation, internal-link, desktop/mobile,
-workflow-security, secret and dependency checks. See
-[Production checks](docs/production-checks.md) for the exact coverage, local
-commands, and GitHub/Cloudflare settings needed to make passing checks mandatory.
+1. Create a branch and make the content or code change.
+2. Run the relevant local checks and open a pull request into `master`.
+3. Review the automated results and Cloudflare Pages preview.
+4. Merge only after the required reviews and checks pass.
+
+Cloudflare Pages uses `master` for production. Workflow files define the checks;
+GitHub rulesets must separately require them before merging. The remaining
+administration setup is documented in [Production checks](docs/production-checks.md#settings-required-before-production).
+
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| `config.yml` | Site metadata, service groups, and component descriptions |
+| `content/issues/` | Published incident and maintenance posts |
+| `content/affected/` | Component detail pages, including those without incidents |
+| `layouts/` and `i18n/` | Delzory's theme overrides and interface wording |
+| `static/` | Assets and public security contact files copied into the site |
+| `themes/cstate/` | Pinned upstream theme submodule |
+| `.github/`, `scripts/`, and `tests/` | CI workflows, dependency updates, and validation |
+
+## Before launch
+
+Confirm that every listed component is offered and its contact channel works.
+The initial incident history is intentionally empty and does not establish
+historical uptime. Verify the production settings in the release guide and the
+security and general contact mailboxes before publishing.
+
+## License and credits
+
+The project includes cState under the [MIT License](LICENSE.md). Preserve the
+upstream license and attribution when changing or redistributing the source.

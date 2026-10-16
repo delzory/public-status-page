@@ -1,76 +1,47 @@
-# Contributing Guidelines
+# Contributing to Delzory Status
 
-This repository is used to publish service status updates and issue tracking for Delzory systems. Direct contributions to the code or content are not open at this time. However, you may report service incidents, outages, or issues related to the status page using the guidelines below.
+[← Repository overview](README.md)
 
-## Adding New Features
+Delzory maintains this repository internally. External pull requests,
+translations, and feature submissions are not currently accepted. Public source
+access does not grant permission to publish status updates or change the site.
 
-New features are managed through planned internal development. We are not currently accepting pull requests or feature submissions.
+## Report a problem
 
-- **Process for new features:** Managed and scheduled internally.
-- **Coding style:** Follows internal security, readability, and maintainability standards.
-- **Submitting pull requests:** Not accepted at this time.
-- **Testing requirements:** All changes undergo validation prior to release.
-- **Changelog updates:** Changes are documented during scheduled releases.
+| Concern | Where to send it |
+| --- | --- |
+| Service outage or account issue | Your existing Delzory support channel |
+| Incorrect status or a page defect | Your existing Delzory support channel; include the page URL |
+| Suspected security vulnerability | [Private security reporting](SECURITY.md) |
+| Harassment or other conduct concern | [contact@dev.delzory.com](mailto:contact@dev.delzory.com) |
 
-## Incident and Outage Reporting
+GitHub Issues are disabled. Reporting a problem through this repository does not
+open a support case or automatically publish an incident.
 
-This repository allows you to report observed service incidents, outages, or discrepancies on the public status page.
+For non-security page defects, include the affected URL, approximate time and
+time zone, browser/device, expected behavior, and what happened instead. Remove
+personal information from screenshots and error messages.
 
-- **Reporting incidents:** Use the GitHub Issues tab to file incident reports.
-- **Information to include:**
-  - Description of the service issue
-  - Affected services, regions, or systems
-  - Start time and duration (if known)
-  - Error messages or observed behavior
-  - Current status (ongoing or resolved)
-- **Duplicate checks:** Review open issues before submitting to avoid duplicates.
-- **Resolution and closure:** Incidents may be updated or closed when resolved.
+## Maintainer workflow
 
-> Note: Submitting an incident report here does not create a formal support case.
+1. Work on a branch and keep the pull request focused on a clear outcome.
+2. For incident content, follow [Incident publishing](docs/incidents.md). For
+   service or layout changes, follow [Site customization](docs/customization.md).
+3. Run the applicable [production checks](docs/production-checks.md#local-checks)
+   and inspect the Cloudflare Pages preview on desktop and mobile.
+4. Describe customer impact, validation, and any remaining setup in the pull request.
+5. Merge into `master` through the configured review and branch rules. Cloudflare
+   Pages then builds the production deployment.
 
-## Bug Reports
+Keep credentials and customer data out of Git history, fixtures, and incident
+posts. Review workflow permission changes and dependency updates carefully;
+CI checks should not need production deployment credentials.
 
-Bug reports help improve the functionality of the status page itself.
+## Documentation and dependencies
 
-- **Reporting bugs:** Use the GitHub Issues tab to report bugs.
-- **Include in your report:**
-  - Steps to reproduce
-  - Affected files or content
-  - Expected vs. actual behavior
-  - Screenshots or error messages (if available)
-  - Frequency of occurrence
-- **Triaging bugs may include:**
-  - Confirming reproduction
-  - Clarifying steps
-  - Identifying duplicates
-  - Validating fixes in updates
-- **Closing resolved issues:** Issues will be closed once confirmed resolved.
+Update the relevant guide when changing a command, component, publishing step, or
+CI behavior. Keep actions pinned to commit SHAs, commit dependency lockfile
+updates, and review Dependabot pull requests rather than accepting them blindly.
+Preserve the upstream [MIT license](LICENSE.md) and theme attribution.
 
-## Beta Testing
-
-Beta testing for new releases may occur periodically but is managed separately.
-
-## Translations
-
-Translation contributions are not being accepted at this time.
-
-## Documentation
-
-Documentation updates are managed internally. Suggestions may be submitted as issues for consideration.
-
-## Community Contributions
-
-Ways you can help:
-
-- Report incidents and bugs with clear details
-- Provide constructive feedback via issues
-- Share real-world use cases or examples
-- Write about the project following community guidelines
-
-## First-Time Contributions
-
-Direct code contributions are not open at this time.
-
-🛡️ For any conduct violations, please contact: *contact@dev.delzory.com*
-
-🔒 For vulnerability disclosures, please see SECURITY.md
+All participation is covered by the [Code of conduct](CODE_OF_CONDUCT.md).

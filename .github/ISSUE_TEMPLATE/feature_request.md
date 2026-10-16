@@ -1,20 +1,28 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Maintainer change proposal
+about: Plan an internally managed improvement to the status page
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+For maintainer planning if GitHub Issues are enabled. External feature submissions
+are not currently accepted; see CONTRIBUTING.md.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## Customer need
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+Describe the problem and who it affects. Include a concrete example.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## Proposed change
+
+Explain the resulting customer experience and which pages or components change.
+
+## Acceptance criteria
+
+Describe the observable behavior that would make the change complete. Include
+mobile and accessibility considerations where relevant.
+
+## Validation and rollout
+
+Identify preview checks, any required administration settings, and documentation
+that needs updating. Do not include credentials or private customer information.

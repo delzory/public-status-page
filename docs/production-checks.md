@@ -1,5 +1,7 @@
 # Production checks
 
+[← Repository overview](../README.md)
+
 `Site checks` runs for every pull request, merge group, and push to `master`.
 It can also be started manually. Jobs use standard Ubuntu runners and read-only
 repository permissions. The workflow does not publish or have deployment credentials.
@@ -21,13 +23,18 @@ repository permissions. The workflow does not publish or have deployment credent
 - **OpenSSF Scorecard**: retained as an advisory on the default branch. It is not a
   per-PR functional test. Its results are public and its artifact expires in 5 days.
 
-The redundant advanced CodeQL file, both OSV workflows, and automatic stale
-issue/PR closure are removed. CodeQL's default setup is configured in GitHub,
-not in the deleted `codeql.yml` file.
+CodeQL's default setup is configured in GitHub, separately from the workflow
+files in this repository. There is no separate OSV workflow or automatic stale
+issue/PR closure.
+
+These checks validate the status page and its source. They do not probe the live
+Delzory services or automatically create incidents when a service becomes unavailable.
 
 ## Settings required before production
 
-Repository files cannot enable these GitHub/Cloudflare settings:
+Treat the following as a launch checklist. These are administration settings,
+not protections that workflow files can enable. Verify them in the provider
+dashboards before treating a passing pull request as ready for production.
 
 1. In the default-branch ruleset, require the successful checks **Build and test
    status page**, **Dependency review**, and **Cloudflare Pages** (select the actual
@@ -65,6 +72,7 @@ npx playwright install --with-deps chromium --only-shell
 bash scripts/install-ci-tools.sh
 .tools/actionlint
 .tools/gitleaks git --redact --no-banner
+npm audit --audit-level=high
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/validate_status.py
 .tools/hugo --environment production --gc --minify
@@ -80,6 +88,8 @@ When adding a service, add its category/system to `config.yml` and create the
 corresponding `content/affected/<slug>/_index.md`. Explicit term pages keep service
 details available before the first incident; missing targets fail the link check.
 For new incident dates, prefer ISO timestamps with an explicit UTC offset.
+See [Incident publishing](incidents.md) for the complete publishing process and
+[Site customization](customization.md) for component and layout changes.
 
 ## Costs and limits
 
@@ -88,3 +98,5 @@ runners and paid third-party services are separate. Artifact and cache storage
 have their own allowances. This workflow does not upload browser videos, traces,
 or screenshots; Scorecard retains its small report for five days. Cloudflare
 Pages build/deployment limits are separate from GitHub Actions.
+
+Billing reference: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions).

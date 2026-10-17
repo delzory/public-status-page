@@ -1,9 +1,12 @@
-This folder can be used to store any static content that you may want to link to on your status page.
+# Public site assets
 
-You may replace the default favicons by creating icons with these names:
+Hugo copies the contents of this directory directly into the published site.
+Everything here is public; do not add credentials or internal documents.
 
-- favicon-16x16.png
-- favicon-32x32.png
-- favicon.ico
+- `logo.png` is the configured site logo.
+- `_headers` contains Cloudflare Pages response header rules.
+- `.well-known/security.txt` publishes the security contact; `security.txt` is its matching discovery copy.
+- `img/` is available for public images referenced by site content.
 
-You may also replace the Netlify CMS configuration by creating an `admin` folder and placing your own `config.yml` or `index.html` file by following the project's given instructions.
+To add custom favicons, use `favicon.ico`, `favicon-16x16.png`, and
+`favicon-32x32.png`. Review changes using the production build and browser checks.

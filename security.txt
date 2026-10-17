@@ -1,7 +1,0 @@
-Contact: mailto:security@delzory.com
-Encryption: 
-Acknowledgements: 
-Policy: 
-Signature: 
-Hiring: 
-OpenBugBounty: https://openbugbounty.org/bugbounty/delzory/

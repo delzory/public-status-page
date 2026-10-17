@@ -1,0 +1,9 @@
+node_modules/
+.venv/
+public/
+resources/
+.hugo_build.lock
+playwright-report/
+test-results/
+__pycache__/
+.tools/

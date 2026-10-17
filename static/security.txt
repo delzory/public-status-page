@@ -1,0 +1,6 @@
+Contact: mailto:security@delzory.com
+Expires: 2027-04-16T00:00:00Z
+Canonical: https://status.delzory.com/.well-known/security.txt
+Canonical: https://status.delzory.com/security.txt
+Policy: https://github.com/delzory/public-status-page/blob/master/SECURITY.md
+Preferred-Languages: en

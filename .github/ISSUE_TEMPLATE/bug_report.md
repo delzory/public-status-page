@@ -1,38 +1,33 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Record a status-page defect for authorized maintainer review
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+Reserved for authorized Delzory maintainers. Public submissions are not accepted,
+and GitHub Issues are currently disabled. Customers should use their existing
+Delzory support channel. Report security vulnerabilities privately to
+security@delzory.com.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Problem
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+Describe the page defect and its impact. Include the affected page URL and the
+approximate time and time zone.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Reproduce
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+1. Open the affected page.
+2. Describe the action that triggers the problem.
+3. Describe what happens.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+## Expected result
 
-**Additional context**
-Add any other context about the problem here.
+Explain what should happen instead.
+
+## Environment and evidence
+
+Include the browser/version, operating system, and device or viewport size.
+Attach sanitized screenshots or error text if useful. Do not include credentials,
+customer information, or vulnerability details.

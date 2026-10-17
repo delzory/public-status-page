@@ -1,3 +1,6 @@
+For authorized Delzory maintainers. Public contributions are not accepted;
+see CONTRIBUTING.md.
+
 ## Change and customer impact
 
 Describe the problem and the resulting behavior. For an incident update, confirm

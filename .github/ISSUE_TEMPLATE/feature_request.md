@@ -1,13 +1,14 @@
 ---
-name: Maintainer change proposal
-about: Plan an internally managed improvement to the status page
+name: Feature request
+about: Plan a status-page improvement for authorized maintainer review
 title: ''
 labels: ''
 assignees: ''
 ---
 
-For maintainer planning if GitHub Issues are enabled. External feature submissions
-are not currently accepted; see CONTRIBUTING.md.
+Reserved for authorized Delzory maintainers. Public feature requests are not
+accepted, and GitHub Issues are currently disabled. See CONTRIBUTING.md for the
+repository's contribution policy.
 
 ## Customer need
 

@@ -62,10 +62,15 @@ maintainer, require an independent approval and review changes to workflows and 
 
 ## Local checks
 
-On Linux x86_64, with Git, curl, tar, Python 3.12 and Node 24:
+On Linux x86_64, with Git, curl, tar, Python 3.12 (including `venv`) and Node 24,
+run the following from the repository root. Playwright's system dependencies may
+require administrator privileges. Use a Python virtual environment to keep the
+CI dependencies separate from the operating system's Python installation:
 
 ```sh
 git submodule update --init --recursive
+python3 -m venv .venv
+. .venv/bin/activate
 python3 -m pip install -r requirements-ci.txt
 npm ci --ignore-scripts
 npx playwright install --with-deps chromium --only-shell

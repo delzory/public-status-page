@@ -1,14 +1,15 @@
 ---
-name: Status page defect
-about: Record a reproducible problem with the status page itself
+name: Bug report
+about: Record a status-page defect for authorized maintainer review
 title: ''
 labels: ''
 assignees: ''
 ---
 
-For maintainer use if GitHub Issues are enabled. Issues are currently disabled;
-customers should use their existing Delzory support channel. Report security
-vulnerabilities privately to security@delzory.com.
+Reserved for authorized Delzory maintainers. Public submissions are not accepted,
+and GitHub Issues are currently disabled. Customers should use their existing
+Delzory support channel. Report security vulnerabilities privately to
+security@delzory.com.
 
 ## Problem
 

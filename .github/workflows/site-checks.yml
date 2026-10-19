@@ -35,8 +35,9 @@ jobs:
         with:
           node-version: '24'
       - name: Install pinned CI dependencies
+        working-directory: .github/ci
         run: |
-          python -m pip install --disable-pip-version-check -r requirements-ci.txt
+          python -m pip install --disable-pip-version-check -r requirements.txt
           npm ci --ignore-scripts
           npx playwright install --with-deps chromium --only-shell
           bash scripts/install-ci-tools.sh
@@ -45,17 +46,17 @@ jobs:
       - name: Scan Git history for exposed credentials
         run: gitleaks git --redact --no-banner
       - name: Audit installed browser-test dependencies
-        run: npm audit --audit-level=high
+        run: npm --prefix .github/ci audit --audit-level=high
       - name: Validate status configuration and incidents
         run: |
-          python -m unittest discover -s tests -p 'test_*.py'
-          python scripts/validate_status.py
+          python -m unittest discover -s .github/ci/tests -p 'test_*.py'
+          python .github/ci/scripts/validate_status.py
       - name: Build production output
         run: hugo --environment production --gc --minify
       - name: Check rendered data and internal links
-        run: python scripts/check_rendered_site.py public
+        run: python .github/ci/scripts/check_rendered_site.py public
       - name: Test desktop and mobile interactions
-        run: npm test
+        run: npm --prefix .github/ci test
 
   dependencies:
     name: Dependency review

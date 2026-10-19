@@ -9,10 +9,10 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: npm
-    directory: /
+    directory: /.github/ci
     schedule:
       interval: weekly
   - package-ecosystem: pip
-    directory: /
+    directory: /.github/ci
     schedule:
       interval: weekly

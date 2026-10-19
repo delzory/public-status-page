@@ -2,7 +2,7 @@
 set -euo pipefail
 # Only Linux x86_64 is used by this project's standard GitHub-hosted runners.
 [[ "$(uname -s)/$(uname -m)" == "Linux/x86_64" ]] || { echo 'Linux x86_64 required'; exit 1; }
-root="$(cd "$(dirname "$0")/.." && pwd)"
+root="$(cd "$(dirname "$0")/../../.." && pwd)"
 mkdir -p "$root/.tools"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
